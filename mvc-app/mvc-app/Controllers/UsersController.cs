@@ -15,18 +15,22 @@ namespace mvc_app.Controllers
             _httpClient = httpClientFactory.CreateClient();
         }
 
-        public async Task<IActionResult> Login(UserDto userDto)
+        public async Task<IActionResult> Login(LoginDTO loginDTO)
         {
             var apiEndpoint = "http://localhost:5249/api/User/Login";
 
 
             // convert to json
-            var data = new StringContent(JsonConvert.SerializeObject(userDto), Encoding.UTF8, "application/json");
+            var data = new StringContent(JsonConvert.SerializeObject(loginDTO), Encoding.UTF8, "application/json");
 
 
             // make the request
-            await _httpClient.PostAsync(apiEndpoint, data);
-
+            var  response = await _httpClient.PostAsync(apiEndpoint, data);
+            if (response.IsSuccessStatusCode)
+            {
+                return Redirect("/");
+            }
+           
             return View();
         }
         public IActionResult Index()
