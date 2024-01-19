@@ -19,7 +19,7 @@ namespace mvc_app.Controllers
         {
             var apiEndpoint = "http://localhost:5249/api/User/Login";
 
-
+            ViewBag.login = "Login";
             // convert to json
             var data = new StringContent(JsonConvert.SerializeObject(loginDTO), Encoding.UTF8, "application/json");
 
@@ -31,6 +31,25 @@ namespace mvc_app.Controllers
                 return Redirect("/");
             }
            
+            return View();
+        }
+
+        public async Task<IActionResult> Register(RegisterDTO registerDTO)
+        {
+            var apiEndpoint = "http://localhost:5249/api/User/Register";
+
+            ViewBag.register = "Register";
+            // convert to json
+            var data = new StringContent(JsonConvert.SerializeObject(registerDTO), Encoding.UTF8, "application/json");
+
+
+            // make the request
+            var response = await _httpClient.PostAsync(apiEndpoint, data);
+            if (response.IsSuccessStatusCode)
+            {
+                return Redirect("/");
+            }
+
             return View();
         }
         public IActionResult Index()
