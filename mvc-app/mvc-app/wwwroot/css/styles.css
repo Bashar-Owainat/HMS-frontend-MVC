@@ -90,7 +90,15 @@
     scroll-behavior: smooth;
   }
 }
+.align-items-center-bash {
+    display: flex;
+    align-items: center;
+    min-height: 100vh; /* Ensure the container takes at least the full height of the viewport */
+}
 
+.login-wrap-bash {
+    width: 100%; /* Make sure the container takes the full width */
+}
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);

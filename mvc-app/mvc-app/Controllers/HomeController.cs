@@ -12,10 +12,15 @@ namespace mvc_app.Controllers
         {
             _logger = logger;
         }
-
+       
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult HeaderPartialView()
+        {
+            return PartialView("_HeaderPartialView");
         }
 
         public IActionResult Privacy()
