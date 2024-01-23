@@ -1,0 +1,59 @@
+﻿@model IEnumerable<mvc_app.Models.Hotel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+    <section class="page-section bg-light" id="portfolio">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">All Hotels</h2>
+                <h3 class="section-subheading text-muted">Here You Can Find Your Hotels</h3>
+                <a class="btn btn-primary btn-xl text-uppercase" href="/Hotels/Create">Add A New Hotel</a>
+            </div>
+            <br />
+            <div class="row">
+          
+            @foreach (var item in Model)
+{
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <!-- Portfolio item 1-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                           
+                            <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">@item.name</div>
+                            <div class="portfolio-caption-subheading text-muted">@item.city</div>
+                        </div>
+                        <ul class="list-inline">
+                            <li>
+                                <strong>State:</strong>
+                                @item.state
+                            </li>
+                            <li>
+                                <strong>Street Address:</strong>
+                                @item.streetAddress
+                            </li>
+                            <li>
+                                <strong>City:</strong>
+                                @item.city
+                            </li>
+                            <li>
+                                <strong>Phone Number:</strong>
+                                @item.phone
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+              
+            }
+                 </div>
+            </div>
+            </section>
+           
+           
+   

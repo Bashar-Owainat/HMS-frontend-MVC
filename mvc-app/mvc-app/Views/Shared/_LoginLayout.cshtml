@@ -13,6 +13,7 @@
 
 </head>
 <body>
+	
     <section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -56,32 +57,93 @@
 									</p>
 								</div>
 			      	</div>
-							<form method="post" action="@Url.Action("Login", "Users")" class="signin-form">
-			      		<div class="form-group mb-3">
-									<label class="label"  for="name">Username</label>
-			      			<input type="text" name="loginDTO.Username" class="form-control" placeholder="Username" required>
-			      		</div>
-		            <div class="form-group mb-3">
-		            	<label class="label" for="password">Password</label>
-						<input type="password" name="loginDTO.Password" class="form-control" placeholder="Password" required>
-		            </div>
-		            <div class="form-group">
-		            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
-		            </div>
-		            <div class="form-group d-md-flex">
-		            	<div class="w-50 text-left">
-			            	<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
-									  <input type="checkbox" checked>
-									  <span class="checkmark"></span>
-										</label>
+							@if (ViewBag.Title == "Login")
+							{
+								
+							
+
+								<form method="post" action="@Url.Action("Login", "Users")" class="signin-form">
+			      				<div class="form-group mb-3">
+											<label class="label"  for="name">Username</label>
+			      					<input type="text" name="loginDTO.Username" class="form-control" placeholder="Username" required>
+			      				</div>
+							   <div class="form-group mb-3">
+		            			<label class="label" for="password">Password</label>
+								<input type="password" name="loginDTO.Password" class="form-control" placeholder="Password" required>
+								 </div>
+								<div class="form-group">
+		            				<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
+								</div>
+								<div class="form-group d-md-flex">
+		            				<div class="w-50 text-left">
+			            				<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+												  <input type="checkbox" checked>
+												  <span class="checkmark"></span>
+													</label>
+												</div>
+												<div class="w-50 text-md-right">
+													<a href="#">Forgot Password</a>
+												</div>
+								</div>
+								 </form>
+							
+								
+								<p class="text-center">Not a member? <a  href="/users/register">Sign Up</a></p>
+							}
+							else
+							{
+								<form method="post" action="@Url.Action("Register", "Users")" class="signin-form">
+			      				<div class="form-group mb-3">
+											<label class="label"  for="name">Username</label>
+										<input type="text" name="registerDTO.Username" class="form-control" placeholder="Username" required>
+			      				</div>
+							   <div class="form-group mb-3">
+		            			<label class="label" for="password">Password</label>
+										<input type="password" name="registerDTO.Password" class="form-control" placeholder="Password" required>
+								 </div>
+									<div class="form-group mb-3">
+										<label class="label" for="Email">Email</label>
+										<input type="email" name="registerDTO.Email" class="form-control" placeholder="Email" required>
 									</div>
-									<div class="w-50 text-md-right">
-										<a href="#">Forgot Password</a>
+									<div class="form-group mb-3">
+										<label class="label" for="PhoneNumber">PhoneNumber</label>
+										<input type="text" name="registerDTO.PhoneNumber" class="form-control" placeholder="PhoneNumber" required>
 									</div>
-		            </div>
-		          </form>
-							<p class="text-center">Not a member? <a  href="/users/register">Sign Up</a></p>
-		        </div>
+									
+										<div class="form-group mb-3">
+										<label class="label" for="Roles">Roles</label>
+										<br>
+										<label class="label" for="PropertyManager">PropertyManager</label>
+										<input type="checkbox" name="registerDTO.Roles" value="PropertyManager" class="form-control">
+
+										<label class="label" for="DistrictManager">DistrictManager</label>
+										<input type="checkbox" name="registerDTO.Roles" value="DistrictManager" class="form-control">
+
+										<label class="label" for="Anonymous">Anonymous</label>
+										<input type="checkbox" name="registerDTO.Roles" value="Anonymous" class="form-control">
+
+										<label class="label" for="Agent">Agent</label>
+										<input type="checkbox" name="registerDTO.Roles" value="Agent" class="form-control">
+										</div>
+									
+									<div class="form-group">
+		            				<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign Up</button>
+								</div>
+								<div class="form-group d-md-flex">
+		            				<div class="w-50 text-left">
+			            				<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+												  <input type="checkbox" checked>
+												  <span class="checkmark"></span>
+													</label>
+												</div>
+												<div class="w-50 text-md-right">
+													<a href="#">Forgot Password</a>
+												</div>
+								</div>
+								 </form>
+							
+							}
+						</div>
 		      </div>
 				</div>
 			</div>
